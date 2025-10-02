@@ -14,8 +14,13 @@ function rowCount() {
   return tbody.children.length; // counts how many <tr> are inside tbody
 }
 function colCount() {
-  const firstRow = tbody.children[0]; // look at first row if it exists
-  return firstRow ? firstRow.children.length : 0; // return # of cells
+        let max = 0;
+        const rows = tbody.getElementsByTagName('tr');
+        for (const r of rows) {
+          const count = r.children.length; // node.children
+          if (count > max) max = count;
+        }
+        return max;
 }
 function updateGridSizeLabel() {
   gridSizeEl.textContent = `Grid: ${rowCount()} × ${colCount()}`;
@@ -74,14 +79,21 @@ function removeColumn()
 {
     const rows = tbody.getElementsByTagName('tr');
 
-    // only proceeding there are rows and at least 1 column
-    if (rows.length > 0 && rows[0].children.length > 0) {
-      for (let i = 0; i < rows.length; i++) {
-        rows[i].removeChild(rows[i].lastElementChild); // removes last cell from each row
-      }
-    } else {
-      console.log("No columns to remove."); // simple output
+    // loop through each row and remove its last cell
+    for (let i = 0; i < rows.length; i++) {
+        if (rows[i].cells.length > 0) {
+            rows[i].deleteCell(-1); // remove last cell
+        }
     }
+
+    // clean up: remove rows that are now empty (0 cells left)
+    for (let i = rows.length - 1; i >= 0; i--) {
+        if (rows[i].cells.length === 0) {
+            tbody.removeChild(rows[i]);
+        }
+    }
+
+    updateGridSizeLabel(); // make sure label stays correct
 }
 function fillUncolored() {  }
 function fillAll() {  }
