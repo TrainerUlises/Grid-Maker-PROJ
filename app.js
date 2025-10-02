@@ -70,7 +70,19 @@ if (rows.length > 0)
     tbody.removeChild(rows[rows.length - 1]); // remove the last row  }
 }
 }
-function removeColumn() {  }
+function removeColumn() 
+{
+    const rows = tbody.getElementsByTagName('tr');
+
+    // only proceeding there are rows and at least 1 column
+    if (rows.length > 0 && rows[0].children.length > 0) {
+      for (let i = 0; i < rows.length; i++) {
+        rows[i].removeChild(rows[i].lastElementChild); // removes last cell from each row
+      }
+    } else {
+      console.log("No columns to remove."); // simple output
+    }
+}
 function fillUncolored() {  }
 function fillAll() {  }
 function clearAll() {  }
