@@ -1,0 +1,28 @@
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  /* Grid table */
+  table {
+    border-collapse: collapse;
+  }
+  
+  td {
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    background: white;
+    cursor: pointer;
+  }
+  
+  /* Controls spacing */
+  .controls {
+    margin-bottom: 10px;
+  }
+  
+  button, select {
+    margin-left: 5px;
+  }
+  

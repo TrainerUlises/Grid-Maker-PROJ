@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta chraset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Grid Coloring Project</title>
+        <!-- connects the CSS file -->
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Grid Coloring Project</h1>
+        </header>
+    
+        <!-- controls section: color picker + actions -->
+        <section class="controls">
+            <!-- color picker dropdown -->
+            <div class="control">
+            <label for="colorPicker"><strong>Color</strong>:</label>
+            <select id="colorPicker">
+                <option value="#000000">Black</option>
+                <option value="#ff0000">Red</option>
+                <option value="#00a000">Green</option>
+                <option value="#0000ff">Blue</option>
+                <option value="#ffff00">Yellow</option>
+                <option value="#800080">Purple</option>
+                <option value="#ffffff">White</option>
+            </select>
+            <!-- little square showing selected color -->
+            <span id="swatch" aria-label="selected color swatch"></span>
+    </div>
+
+    <!-- action selector dropdown -->
+    <div class="control">
+        <label for="actionSelect"><strong>Action</strong>:</label>
+        <select id="actionSelect">
+          <option value="add-row">Add Row</option>
+          <option value="add-col">Add Column</option>
+          <option value="remove-row">Remove Row</option>
+          <option value="remove-col">Remove Column</option>
+          <option value="fill-uncolored">Color All <em>Uncolored</em> Cells</option>
+          <option value="fill-all">Color <em>All</em> Cells</option>
+          <option value="clear-all">Clear All (back to white)</option>
+        </select>
+        <!-- button to trigger selected action -->
+        <button id="doAction">Run</button>
+      </div>
+      
+    <!-- label showing current grid size -->
+    <div class="meta">
+        <span id="gridSize">Grid: 0 × 0</span>
+    </div>
+    </section>
+
+    <!--Empty grid!-->
+    <main>
+        <table id="grid"><tbody></tbody></table>
+    </main>
+
+    <!-- connects to the JS file -->
+    <script src="app.js"></script>
+
+    </body>
+</html>
