@@ -31,13 +31,24 @@ function wireCell(td) {
 }
 
 // ====== TODO stubs (these will be filled in feature branches) ======
-function addRow() { /* IMPLEMENT IN FEATURE BRANCH */ }
-function addColumn() { /* IMPLEMENT IN FEATURE BRANCH */ }
-function removeRow() { /* IMPLEMENT IN FEATURE BRANCH */ }
-function removeColumn() { /* IMPLEMENT IN FEATURE BRANCH */ }
-function fillUncolored() { /* IMPLEMENT IN FEATURE BRANCH */ }
-function fillAll() { /* IMPLEMENT IN FEATURE BRANCH */ }
-function clearAll() { /* IMPLEMENT IN FEATURE BRANCH */ }
+function addRow() 
+{ 
+const cols = colCount() || 1; //if grid empty, initialize with 1
+const tr = document.createElement('tr'); // create a new row
+
+for (let i = 0; i < cols; i++) {
+    const td = document.createElement('td'); // create cell
+    wireCell(td);                            // allowing it to be selected and changes color
+    tr.appendChild(td);                      // adds cell to row
+  }
+  tbody.appendChild(tr); // add row to table
+}
+function addColumn() {  }
+function removeRow() {  }
+function removeColumn() {  }
+function fillUncolored() {  }
+function fillAll() {  }
+function clearAll() {  }
 
 // ===== Action menu wiring =====
 // when user clicks "Run", check selected action and call right function
