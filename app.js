@@ -43,7 +43,22 @@ for (let i = 0; i < cols; i++) {
   }
   tbody.appendChild(tr); // add row to table
 }
-function addColumn() {  }
+function addColumn() { 
+    const rows = tbody.getElementsByTagName('tr');
+
+    // if grid is empty, start with 1 row
+    if (rows.length === 0) {
+      addRow(); // fallback, ensures at least 1 row exists
+      return;
+    }
+  
+    // loop through each row, adding  a new cell
+    for (let i = 0; i < rows.length; i++) {
+      const td = document.createElement('td'); // new cell
+      wireCell(td);                            // make it clickable/colorable
+      rows[i].appendChild(td);                 // attach to row
+    } 
+}
 function removeRow() {  }
 function removeColumn() {  }
 function fillUncolored() {  }
