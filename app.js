@@ -68,7 +68,9 @@ const rows = tbody.getElementsByTagName('tr');
 if (rows.length > 0) 
 {
     tbody.removeChild(rows[rows.length - 1]); // remove the last row  }
-}
+}else {
+    console.log("No rows to remove."); // safe debug log
+  }
 }
 function removeColumn() {  }
 function fillUncolored() {  }
