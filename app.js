@@ -59,7 +59,17 @@ function addColumn() {
       rows[i].appendChild(td);                 // attach to row
     } 
 }
-function removeRow() {  }
+function removeRow()
+{ 
+    
+const rows = tbody.getElementsByTagName('tr');
+
+// only remove if there’s at least one row
+if (rows.length > 0) 
+{
+    tbody.removeChild(rows[rows.length - 1]); // remove the last row  }
+}
+}
 function removeColumn() {  }
 function fillUncolored() {  }
 function fillAll() {  }
