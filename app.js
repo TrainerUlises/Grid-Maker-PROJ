@@ -95,7 +95,17 @@ function removeColumn()
 
     updateGridSizeLabel(); // make sure label stays correct
 }
-function fillUncolored() {  }
+function fillUncolored() {  
+    const cells = tbody.getElementsByTagName('td');
+    const color = colorPicker.value;
+
+    for (let cell of cells) {
+        // Only fill cells that are still white/uncolored
+        if (cell.style.backgroundColor === '' || cell.style.backgroundColor === 'white') {
+            cell.style.backgroundColor = color;
+        }
+    }
+}
 function fillAll() {  }
 function clearAll() {  }
 
