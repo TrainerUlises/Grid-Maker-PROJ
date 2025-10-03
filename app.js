@@ -106,7 +106,14 @@ function fillUncolored() {
         }
     }
 }
-function fillAll() {  }
+function fillAll() {  
+    const color = colorPicker.value; // gets color
+    const cells = tbody.getElementsByTagName('td'); // all cells in grid are selected
+
+    for(let cell of cells){
+        cell.style.backgroundColor = color; // overwrite all cells
+    }
+}
 function clearAll() {  }
 
 // ===== Action menu wiring =====
