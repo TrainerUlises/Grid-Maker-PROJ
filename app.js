@@ -114,7 +114,15 @@ function fillAll() {
         cell.style.backgroundColor = color; // overwrite all cells
     }
 }
-function clearAll() {  }
+function clearAll() {
+    //selecting all table cells in grid
+    const cells = tbody.getElementsByTagName('td');
+
+    //looping through each cell and reseting background color
+    for(let cell of cells){
+        cell.style.backgroundColor = 'white'; // reset to white color
+    }
+}
 
 // ===== Action menu wiring =====
 // when user clicks "Run", check selected action and call right function
